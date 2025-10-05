@@ -30,12 +30,18 @@ It covers:
 
 ## ⚡ Live Demo
 
-- **Frontend:** [https://YOUR_FRONTEND_URL](https://YOUR_FRONTEND_URL)  
-- **Backend API Base URL:** [https://YOUR_BACKEND_URL/api/products](https://YOUR_BACKEND_URL/api/products)
+- **Frontend:** [https://mini-vendor-catalog-git-main-md-arsul-amins-projects.vercel.app/]  
+- **Backend API Base URL:** [https://mini-vendor-catalog.onrender.com]
 
 ---
 
 ## 📦 Features
+
+- **Product List View:** Displays all products in a responsive card layout.  
+- **Add Product Form:** Add new products with name, description, and price.  
+- **Delete Product:** Remove products with a single click.  
+- **Automatic Updates:** List updates instantly after adding or deleting products.  
+- **Dark Mode & Sidebar:** Modern vendor dashboard UI with dark mode toggle.
 
 ### Frontend
 
@@ -132,7 +138,11 @@ npm run dev
 
 - Frontend will run at: http://localhost:5173
 ```
-### 📸 Screenshots
+### Add Product Form
+![Add Product](./frontend/src/assets/Screenshot%20(117).png)
+
+### After Adding a Product
+![Product Added](./frontend/src/assets/Screenshot%20(119).png)
 
 
 
@@ -146,8 +156,8 @@ Delete updates the list instantly
 
 ## 🔗 Deployment Links
 
-- Frontend (Vercel): https://YOUR_FRONTEND_URL
+- Frontend (Vercel): https://mini-vendor-catalog-git-main-md-arsul-amins-projects.vercel.app/
 
-- Backend (Render): https://YOUR_BACKEND_URL
+- Backend (Render): https://mini-vendor-catalog.onrender.com
 
 ---
