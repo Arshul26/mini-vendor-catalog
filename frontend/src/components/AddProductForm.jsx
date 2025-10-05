@@ -1,43 +1,51 @@
 import React, { useState } from "react";
+import { Form, Input, Button, message, InputNumber } from "antd";
 
 export default function AddProductForm({ onAdd }) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [form] = Form.useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name || !price) return alert("Name and price are required");
-
-    onAdd({ name, description, price: Number(price) });
-
-    // Clear form
-    setName("");
-    setDescription("");
-    setPrice("");
+  const onFinish = (values) => {
+    onAdd(values);
+    message.success("Product added!");
+    form.resetFields();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <input
-        type="text"
-        placeholder="Product Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Price"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-      />
-      <button type="submit">Add Product</button>
-    </form>
+    <Form
+      form={form}
+      layout="vertical"
+      onFinish={onFinish}
+      style={{ maxWidth: 600, margin: "0 auto" }}
+    >
+      <Form.Item
+        label="Product Name"
+        name="name"
+        rules={[{ required: true, message: "Please enter product name" }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Description"
+        name="description"
+        rules={[{ required: true, message: "Please enter description" }]}
+      >
+        <Input.TextArea rows={3} />
+      </Form.Item>
+
+      <Form.Item
+        label="Price"
+        name="price"
+        rules={[{ required: true, message: "Please enter price" }]}
+      >
+        <InputNumber style={{ width: "100%" }} min={0} />
+      </Form.Item>
+
+      <Form.Item>
+        <Button type="primary" htmlType="submit">
+          Add Product
+        </Button>
+      </Form.Item>
+    </Form>
   );
 }

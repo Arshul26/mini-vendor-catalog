@@ -1,18 +1,29 @@
 import React from "react";
+import { Card, Row, Col, Button } from "antd";
 
 export default function ProductList({ products, onDelete }) {
-  if (!products.length) return <p>No products available.</p>;
+  if (!products.length) return <p>No products yet.</p>;
 
   return (
-    <div className="product-list">
-      {products.map((product) => (
-        <div key={product._id} className="product-card">
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
-          <p><strong>₹{product.price}</strong></p>
-          <button onClick={() => onDelete(product._id)}>Delete</button>
-        </div>
+    <Row gutter={[16, 16]}>
+      {products.map((p) => (
+        <Col key={p._id} xs={24} sm={12} md={8}>
+          <Card
+            title={p.name}
+            extra={
+              <Button type="primary" danger onClick={() => onDelete(p._id)}>
+                Delete
+              </Button>
+            }
+            bordered
+          >
+            <p>{p.description}</p>
+            <p>
+              <strong>Price:</strong> ${p.price}
+            </p>
+          </Card>
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 }

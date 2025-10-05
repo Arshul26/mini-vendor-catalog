@@ -77,3 +77,18 @@ h1 {
 .product-card button:hover {
   background: #a71d2a;
 }
+
+
+.dark-layout {
+  background-color: #141414;
+  color: #fff;
+}
+
+.dark-layout .ant-layout-header {
+  background-color: #001529 !important;
+}
+
+.dark-layout .ant-card {
+  background-color: #1f1f1f !important;
+  color: #fff !important;
+}
